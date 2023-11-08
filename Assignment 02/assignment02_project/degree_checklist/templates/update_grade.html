@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Update Grade</title>
+</head>
+<body>
+    <h1>Update Grade for {{ enrolled_course.course.course_title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="new_grade" placeholder="New Grade">
+        <button type="submit">Update Grade</button>
+    </form>
+</body>
+</html>
