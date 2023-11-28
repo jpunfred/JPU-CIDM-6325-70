@@ -1,0 +1,27 @@
+<!-- advinterface/templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h2>Welcome, {{ student.user.first_name }}! Go Buffs!</h2>
+
+    <div>
+        <h3>Student Information</h3>
+        <p>Name: {{ student.user.first_name }} {{ student.user.last_name }}</p>
+        <p>Major: {{ student.major.name }}</p>
+        <p>Advisor: {{ advisor.name }} - {{ advisor.contact_information }}</p>
+    </div>
+
+    <!-- Add more sections or information as needed -->
+
+    <!-- Add the option to select classes -->
+
+</body>
+
+</html>
