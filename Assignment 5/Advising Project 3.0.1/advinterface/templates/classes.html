@@ -1,0 +1,32 @@
+<!-- advinterface/templates/classes.html -->
+<h2>Welcome, {{ user_profile.user.first_name }}! Go Buffs!</h2>
+<p>Major: {{ user_profile.major }}</p>
+<p>Buff ID: {{ user_profile.buff_id }}</p>
+<p>Your advisor: {{ advisor.name }} - {{ advisor.contact_information }}</p>
+<p>------------------------------------------</p>
+<h4>Please select your preferred classes</h4>
+<form method="post">
+  {% csrf_token %}
+  {% for field in major_requirements_form %}
+    <div style="margin-bottom: 10px;"> <!-- Add some margin between sections -->
+      <strong>{{ field.label_tag }}</strong> <!-- Make section name bold -->
+      {% if field.name == 'communication' %}
+        <p>Select Two</p> <!-- Custom label for Communication section -->
+      {% elif field.name == 'component_area_option' %}
+        <p>Select Two</p> <!-- Custom label for Component Area Option section -->
+      {% elif field.name == 'nine_hours_from' %}
+        <p>Select Three</p> <!-- Custom label for Nine Hours From section -->
+      {% else %}
+        <p>Select All Available</p> <!-- Default label for other sections -->
+      {% endif %}
+      {% for choice in field %}
+        <div class="form-check" style="margin-left: 20px;"> <!-- Adjust left margin for checkboxes -->
+          <input type="checkbox" id="{{ choice.id_for_label }}" name="{{ choice.name }}" value="{{ choice.value }}" {% if choice.selected %}checked{% endif %}>
+          <label class="form-check-label" for="{{ choice.id_for_label }}">{{ choice.choice_label }}</label>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit">Save Major Requirements</button>
+</form>
+<a href="{% url 'submit' %}">Submit</a>
