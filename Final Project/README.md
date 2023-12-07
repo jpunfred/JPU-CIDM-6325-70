@@ -2,7 +2,7 @@ Jordan Unfred
 
 E-Comm & Web Dev (CIDM-6325-70)
 
-# Update 12/5/2023
+# Update 12/3/2023
 - Deployment Error
 
 I was unsuccessful in deploying the project to the EC2 Ubuntu instance on AWS. I have attached screenshots (Figures) of the project running on repl.it. Here is a list of the things I attempted:
